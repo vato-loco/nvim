@@ -346,8 +346,8 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>t', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>g', builtin.git_files, {})
-      vim.keymap.set('n', '<leader>fg', function()
-            builtin.grep_string({ search = vim.fn.input("Grep > ") });
+      -- vim.keymap.set('n', '<leader>fg', function()
+            -- builtin.grep_string({ search = vim.fn.input("Grep > ") });
 
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
