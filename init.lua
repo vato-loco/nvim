@@ -39,6 +39,7 @@ vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
 -- window management
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) 
@@ -197,6 +198,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  'mbbill/undotree',
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
