@@ -718,17 +718,6 @@ require('lazy').setup({
       }
     end,
   },
-
-  --[[ 
-  {
-    'vato-loco/ghub',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
-    init = function()
-      vim.cmd.colorscheme 'github_light'
-    end,
-  },
-  ]]
-  --
   {
     'projekt0n/github-nvim-theme',
     --'Yazeed1s/oh-lucy.nvim',
