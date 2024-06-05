@@ -554,6 +554,8 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'tsserver',
+        'eslint',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -664,6 +666,8 @@ require('lazy').setup({
         --
         -- No, but seriously. Please read `:help ins-completion`, it is really good!
         mapping = cmp.mapping.preset.insert {
+
+          ['<Tab>'] = cmp.mapping.confirm { select = true },
           -- Select the [n]ext item
           ['<C-n>'] = cmp.mapping.select_next_item(),
           -- Select the [p]revious item
@@ -672,11 +676,6 @@ require('lazy').setup({
           -- Scroll the documentation window [b]ack / [f]orward
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
-
-          -- Accept ([y]es) the completion.
-          --  This will auto-import if your LSP supports it.
-          --  This will expand snippets if the LSP sent a snippet.
-          ['<C-y>'] = cmp.mapping.confirm { select = true },
 
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
@@ -719,14 +718,61 @@ require('lazy').setup({
       }
     end,
   },
+
+  --[[ 
   {
-    'Yazeed1s/oh-lucy.nvim',
+    'vato-loco/ghub',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
-      vim.cmd.colorscheme 'oh-lucy'
-
-      -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
+      vim.cmd.colorscheme 'github_light'
+    end,
+  },
+  ]]
+  --
+  {
+    'projekt0n/github-nvim-theme',
+    --'Yazeed1s/oh-lucy.nvim',
+    lazy = false,
+    priority = 1000, -- Make sure to load this before all the other start plugins.
+    init = function()
+      --vim.g.oh_lucy_transparent_background = true
+      --vim.cmd.colorscheme 'oh-lucy'
+      local palettes = {
+        github_light = {
+          -- Defining multiple shades is done by passing a table
+          bg0 = '#47e455',
+          bg1 = '#47e455',
+          bg2 = '#47e455',
+          bg3 = '#47e455',
+          bg4 = '#47e455',
+          red = {
+            base = '#d73a49',
+            bright = '#d73a49',
+          },
+          blue = {
+            base = '#005cc5',
+            bright = '#005cc5',
+          },
+        },
+      }
+      local specs = {
+        all = {
+          bg0 = '#fafafa',
+          bg1 = '#fafafa',
+          bg2 = '#fafafa',
+          bg3 = '#fafafa',
+          bg4 = '#fafafa',
+          syntax = {
+            type = '#E55700',
+            field = '#24292e',
+            operator = '#d73a49',
+            string = '#183691',
+            --variable = '#6cfe4a',
+          },
+        },
+      }
+      require('github-theme').setup { palettes = palettes, specs = specs }
+      vim.cmd.colorscheme 'github_light'
     end,
   },
   -- Highlight todo, notes, etc in comments
