@@ -748,9 +748,9 @@ require('lazy').setup({
         all = {
           bg0 = '#fafafa',
           bg1 = '#fafafa',
-          bg2 = '#fafafa',
-          bg3 = '#fafafa',
-          bg4 = '#fafafa',
+          bg4 = '#24292e',
+          --bg3 = '#fafafa',
+          --bg4 = '#fafafa',
           syntax = {
             type = '#E55700',
             field = '#24292e',
