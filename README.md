@@ -1,7 +1,3 @@
-# kickstart.nvim config
-
-## Installation
-
 ### Install Neovim
 `brew install nvim`
 
