@@ -193,6 +193,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  'mg979/vim-visual-multi',
   'mbbill/undotree',
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -729,10 +730,10 @@ require('lazy').setup({
       local palettes = {
         github_light = {
           -- Defining multiple shades is done by passing a table
-          bg0 = '#47e455',
-          bg1 = '#47e455',
+          bg0 = '#47e455', --vim status bar
+          bg1 = '#47e455', --actual background
           bg2 = '#47e455',
-          bg3 = '#47e455',
+          bg3 = '#47e455', --selection row
           bg4 = '#47e455',
           red = {
             base = '#d73a49',
