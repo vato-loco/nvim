@@ -727,31 +727,13 @@ require('lazy').setup({
     init = function()
       --vim.g.oh_lucy_transparent_background = true
       --vim.cmd.colorscheme 'oh-lucy'
-      local palettes = {
-        github_light = {
-          -- Defining multiple shades is done by passing a table
-          bg0 = '#47e455', --vim status bar
-          bg1 = '#47e455', --actual background
-          bg2 = '#47e455',
-          bg3 = '#47e455', --selection row
-          bg4 = '#47e455',
-          red = {
-            base = '#d73a49',
-            bright = '#d73a49',
-          },
-          blue = {
-            base = '#005cc5',
-            bright = '#005cc5',
-          },
-        },
-      }
       local specs = {
-        all = {
-          bg0 = '#fafafa',
-          bg1 = '#fafafa',
-          bg4 = '#24292e',
-          --bg3 = '#fafafa',
-          --bg4 = '#fafafa',
+        github_light = {
+          bg0 = '#fafafa', --vim status bar
+          bg1 = '#fafafa', -- actual background
+          bg2 = '#e9edf2', -- selection row
+          --bg3 = '#e9edf2', -- selection row
+          --bg4 = '#e9edf2', -- selection row
           syntax = {
             type = '#E55700',
             field = '#24292e',
@@ -761,7 +743,25 @@ require('lazy').setup({
           },
         },
       }
-      require('github-theme').setup { palettes = palettes, specs = specs }
+      local groups = {
+        github_light = {
+          Search = { fg = '#e55700' },
+          Delimiter = { fg = '#686e67' },
+        },
+      }
+      local palettes = {
+        github_light = {
+
+          --fg = {
+          --default = '#11ff00',
+          --muted = '#11ff00',
+          --subtle = '#11ff00',
+          --on_emphasis = '#11ff00',
+          --},
+        },
+      }
+
+      require('github-theme').setup { specs = specs, palettes = palettes, groups = groups }
       vim.cmd.colorscheme 'github_light'
     end,
   },
