@@ -720,13 +720,21 @@ require('lazy').setup({
     end,
   },
   {
+    'Yazeed1s/oh-lucy.nvim',
+    lazy = false,
+    priority = 1000,
+    init = function()
+      --vim.g.oh_lucy_transparent_background = true
+      vim.cmd.colorscheme 'oh-lucy'
+      vim.cmd 'set fillchars+=vert:\\ '
+    end,
+  },
+  --[[
+  {
     'projekt0n/github-nvim-theme',
-    --'Yazeed1s/oh-lucy.nvim',
     lazy = false,
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
-      --vim.g.oh_lucy_transparent_background = true
-      --vim.cmd.colorscheme 'oh-lucy'
       local specs = {
         github_light = {
           bg0 = '#fafafa', --vim status bar
@@ -761,10 +769,12 @@ require('lazy').setup({
         },
       }
 
-      require('github-theme').setup { specs = specs, palettes = palettes, groups = groups }
+      require('github-theme').setup { options = { transparent = true }, specs = specs, palettes = palettes, groups = groups }
       vim.cmd.colorscheme 'github_light'
     end,
   },
+  ]]
+  --
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
@@ -825,7 +835,7 @@ require('lazy').setup({
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
       -- Prefer git instead of curl in order to improve connectivity in some environments
-      require('nvim-treesitter.install').prefer_git = true
+      --require('nvim-treesitter.install').prefer_git = true
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup(opts)
 
