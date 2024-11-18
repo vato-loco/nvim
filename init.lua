@@ -719,6 +719,7 @@ require('lazy').setup({
       }
     end,
   },
+  --[[
   {
     'Yazeed1s/oh-lucy.nvim',
     lazy = false,
@@ -727,6 +728,31 @@ require('lazy').setup({
       --vim.g.oh_lucy_transparent_background = true
       vim.cmd.colorscheme 'oh-lucy'
       vim.cmd 'set fillchars+=vert:\\ '
+    end,
+  },
+  --]]
+  --[[
+  {
+    'folke/tokyonight.nvim',
+    lazy = false,
+    opts = {
+      transparent = true,
+    },
+    init = function()
+      --vim.g.oh_lucy_transparent_background = true
+      vim.cmd.colorscheme 'tokyonight-night'
+    end,
+  },
+  --]]
+  {
+    'zenbones-theme/zenbones.nvim',
+    dependencies = 'rktjmp/lush.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.tokyobones_transparent_background = true
+      vim.g.tokyobones_italic_comments = false
+      vim.cmd.colorscheme 'tokyobones'
     end,
   },
   --[[
@@ -796,9 +822,8 @@ require('lazy').setup({
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
+      --[[
       -- Simple and easy statusline.
-      --  You could remove this setup call if you don't like it,
-      --  and try some other statusline plugin
       local statusline = require 'mini.statusline'
       -- set use_icons to true if you have a Nerd Font
       statusline.setup { use_icons = vim.g.have_nerd_font }
@@ -808,11 +833,56 @@ require('lazy').setup({
       -- cursor location to LINE:COLUMN
       ---@diagnostic disable-next-line: duplicate-set-field
       statusline.section_location = function()
-        return '%2l:%-2v'
+        return ''
       end
-
-      -- ... and there is more!
-      --  Check out: https://github.com/echasnovski/mini.nvim
+      --]]
+    end,
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('lualine').setup {
+        options = {
+          icons_enabled = false,
+          theme = 'auto',
+          component_separators = { left = '', right = '' },
+          section_separators = { left = '', right = '' },
+          disabled_filetypes = {
+            statusline = {},
+            winbar = {},
+          },
+          ignore_focus = {},
+          always_divide_middle = true,
+          always_show_tabline = false,
+          globalstatus = true,
+          refresh = {
+            statusline = 100,
+            tabline = 100,
+            winbar = 100,
+          },
+        },
+        sections = {
+          lualine_a = { 'mode' },
+          lualine_b = { 'branch' },
+          lualine_c = { 'filename' },
+          lualine_x = { 'encoding' },
+          lualine_y = { 'progress' },
+          lualine_z = {},
+        },
+        inactive_sections = {
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = { 'filename' },
+          lualine_x = { 'location' },
+          lualine_y = {},
+          lualine_z = {},
+        },
+        tabline = {},
+        winbar = {},
+        inactive_winbar = {},
+        extensions = {},
+      }
     end,
   },
   { -- Highlight, edit, and navigate code
