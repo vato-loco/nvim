@@ -17,6 +17,12 @@ vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- window management
 vim.keymap.set('n', '<leader>sv', '<C-w>v', { desc = 'Split window vertically' })
 vim.keymap.set('n', '<leader>sh', '<C-w>s', { desc = 'Split window horizontally' })
+
+vim.keymap.set('n', '<leader>H', '<C-w><', { desc = 'Resize window left' })
+vim.keymap.set('n', '<leader>J', '<C-w>-', { desc = 'Resize window down' })
+vim.keymap.set('n', '<leader>K', '<C-w>+', { desc = 'Resize window up' })
+vim.keymap.set('n', '<leader>L', '<C-w>>', { desc = 'Resize window right' })
+
 vim.keymap.set('n', '<leader>se', '<C-w>=', { desc = 'Make splits equal size' })
 vim.keymap.set('n', '<leader>sx', '<cmd>close<CR>', { desc = 'Close current split' })
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
