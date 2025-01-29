@@ -9,28 +9,29 @@ require('lazy').setup({
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
   -- Adds git related signs to the gutter, as well as utilities for managing changes
-  require 'kickstart/plugins/gitsigns',
+  require 'plugins/gitsigns',
   -- Fuzzy Finder (files, lsp, etc)
-  require 'kickstart/plugins/telescope',
+  require 'plugins/telescope',
   -- LSP Configuration & Plugins
-  require 'kickstart/plugins/lspconfig',
+  require 'plugins/lspconfig',
   -- Autoformat
-  require 'kickstart/plugins/conform',
+  require 'plugins/conform',
   -- Autocompletion
-  require 'kickstart/plugins/cmp',
+  require 'plugins/cmp',
   -- Highlight todo, notes, etc in comments
-  require 'kickstart/plugins/todo-comments',
+  require 'plugins/todo-comments',
   -- Collection of various small independent plugins/modules
-  require 'kickstart/plugins/mini',
-  require 'kickstart/plugins/lualine',
+  -- require 'plugins/mini',
+  require 'plugins/lualine',
   -- Highlight, edit, and navigate code
-  require 'kickstart/plugins/treesitter',
+  require 'plugins/treesitter',
+  require 'plugins/multiple-cursors',
 
   -- Themes
-  --require 'kickstart/themes/oh-lucy',
-  --require 'kickstart/themes/zenbones',
-  --require 'kickstart/themes/github',
-  require 'kickstart/themes/tokyonight',
+  --require 'themes/oh-lucy',
+  --require 'themes/zenbones',
+  --require 'themes/github',
+  require 'themes/tokyonight',
 
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
