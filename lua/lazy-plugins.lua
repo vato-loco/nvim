@@ -28,10 +28,10 @@ require('lazy').setup({
   require 'plugins/multiple-cursors',
 
   -- Themes
-  --require 'themes/oh-lucy',
+  require 'themes/void',
   --require 'themes/zenbones',
   --require 'themes/github',
-  require 'themes/tokyonight',
+  --require 'themes/tokyonight',
 
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
