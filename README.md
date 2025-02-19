@@ -26,3 +26,4 @@ Start Neovim
 ```sh
 nvim
 ```
+
